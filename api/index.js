@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const { Configuration, OpenAIApi } = require("openai");
 const cors = require("cors");
-require('dotenv').config();
+require("dotenv").config();
 const port = 4000;
 app.use(express.json());
 app.use(
