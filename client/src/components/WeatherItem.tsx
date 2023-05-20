@@ -1,5 +1,6 @@
 import React from 'react'
 import Spinner from './Spinner'
+import { motion } from 'framer-motion'
 
  interface weatherProp {
     loading: boolean
@@ -28,10 +29,19 @@ import Spinner from './Spinner'
 }
 const WeatherItem: React.FC<weatherProp> = ({weather, loading, prediction}) => {
 
+    const cardVariant = {
+        hidden:{opacity:0, scale:0.5},
+        visible: {opacity:1, scale:1}
+    }
     const weatherElement = weather.weather.map((currentWeather)=>{
         const {id, main, description, icon} = currentWeather
         return(
-            <div key={id} className="w-full h-full bg-slate-100/50 rounded-xl px-4 py-3 " >
+            <motion.div
+             variants={cardVariant}
+             initial='hidden'
+             animate='visible'
+             transition={{duration:0.5}}
+             key={id} className="w-full h-full bg-slate-100/50 rounded-xl px-4 py-3 " >
                 <div className="w-full flex justify-between mb-2 gap-4 ">
 
                     <div className="relative">
@@ -74,7 +84,7 @@ const WeatherItem: React.FC<weatherProp> = ({weather, loading, prediction}) => {
                 </div>
                 
                 
-            </div>
+            </motion.div>
         )
            
     })
@@ -83,9 +93,14 @@ const WeatherItem: React.FC<weatherProp> = ({weather, loading, prediction}) => {
         {loading? <div className='flex justify-center'>
             <Spinner/>
         </div> : weatherElement}
-        {weather && <div className='bg-slate-900 bg-opacity-50 p-4 rounded-xl backdrop-blur backdrop-filter'>
+        {weather && <motion.div
+        variants={cardVariant}
+        initial='hidden'
+        animate='visible'
+        transition={{duration:1.2, delay:0.5}}
+        className='bg-slate-900 bg-opacity-50 p-4 rounded-xl backdrop-blur backdrop-filter'>
             {loading ? <div className='flex items-center justify-center'><Spinner/> </div> : <p className='text-slate-200'>{prediction}</p>}
-            </div>}
+            </motion.div>}
     </div>
   )
 }
