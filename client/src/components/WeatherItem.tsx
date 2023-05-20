@@ -1,4 +1,5 @@
 import React from 'react'
+import Spinner from './Spinner'
 
  interface weatherProp {
     loading: boolean
@@ -78,7 +79,14 @@ const WeatherItem: React.FC<weatherProp> = ({weather, loading, prediction}) => {
            
     })
   return (
-    <div>WeatherItem</div>
+    <div className='flex flex-col gap-4 mb-6'>
+        {loading? <div className='flex justify-center'>
+            <Spinner/>
+        </div> : weatherElement}
+        {weather && <div className='bg-slate-900 bg-opacity-50 p-4 rounded-xl backdrop-blur backdrop-filter'>
+            {loading ? <div className='flex items-center justify-center'><Spinner/> </div> : <p className='text-slate-200'>{prediction}</p>}
+            </div>}
+    </div>
   )
 }
 

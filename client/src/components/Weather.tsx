@@ -22,7 +22,7 @@ interface weatherProps {
   };
 }
 
-const apiKey = import.meta.env.VITE_API_KEY;
+const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 const Weather = () => {
   const [city, setCity] = useState<string>("");
   const [weather, setWeather] = useState<weatherProps | null>(null);
@@ -61,11 +61,12 @@ const Weather = () => {
   // console.log(loading)
 
   return (
-    <div className="relative w-full h-screen lg:h-[120vh] max-w-full px-4 top-[50%] py-6 left-0 mx-auto flex items-center justify-center">
+    <div className="relative w-full min-h-screen max-h-[120vh] max-w-full px-4 top-[50%] py-6 left-0 mx-auto flex items-center justify-center">
       <img
         className="absolute top-0 left-0 w-full h-full object-cover -z-10"
         src="https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?cs=srgb&dl=pexels-pixabay-209831.jpg&fm=jpg"
         alt=""
+        loading="lazy"
       />
       <div className=" px-4 w-full md:max-w-[50vw] mt-24 lg:max-w-[40vw] backdrop-blur backdrop-filter border translation hover:border-l-8 border-l-2 border-l-cyan-500 h-auto bg-slate-900/10 rounded-2xl">
         <form onSubmit={onSubmit}>
@@ -82,7 +83,7 @@ const Weather = () => {
                 placeholder="current weather in your City"
                 value={city}
                 onChange={handleCityChange}
-                className="px-4 py-1.5 w-full outline-none focus:border-cyan-500 translation border-b-2 text-slate-200 placeholder:text-slate-600 bg-transparent rounded-xl"
+                className="px-4 py-1.5 w-full outline-none focus:border-cyan-500 translation border-b-2 text-slate-200 placeholder:text-slate-400 bg-transparent rounded-xl"
                 required
               />
             </div>
