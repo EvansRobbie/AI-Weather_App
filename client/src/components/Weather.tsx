@@ -68,7 +68,7 @@ const Weather = () => {
         alt=""
         loading="lazy"
       />
-      <div className=" px-4 w-full md:max-w-[50vw] mt-24 lg:max-w-[40vw] backdrop-blur backdrop-filter border translation hover:border-l-8 border-l-2 border-l-cyan-500 h-auto bg-slate-900/10 rounded-2xl">
+      <div className=" px-4 w-full md:max-w-[50vw] mt-24 lg:max-w-[40vw] backdrop-blur backdrop-filter border translation hover:border-l-4 border-l-2 border-l-cyan-500 h-auto bg-slate-900/10 rounded-2xl">
         <form onSubmit={onSubmit}>
           <div className="flex gap-4 items-center justify-center w-full py-10 h-full">
             <div className="flex flex-col justify-center w-full">

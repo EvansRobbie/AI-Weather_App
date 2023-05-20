@@ -73,7 +73,7 @@ const WeatherItem: React.FC<weatherProp> = ({
           <div>
             {/* humidity */}
             <div className="flex items-center">
-              <p className="text-3xl text-slate-900">{weather.main.humidity}</p>
+              <p className="text-3xl text-slate-900 font-medium">{weather.main.humidity}</p>
               <span>%</span>
             </div>
 
@@ -82,7 +82,7 @@ const WeatherItem: React.FC<weatherProp> = ({
           <div>
             {/* feels_like */}
             <div className="flex items-center gap-1">
-              <p className="text-3xl text-slate-900">
+              <p className="text-3xl font-medium text-slate-900">
                 {weather.wind.speed.toFixed(0)}
               </p>
               <span className="text-sm">MPH</span>

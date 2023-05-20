@@ -20,7 +20,7 @@ const openai = new OpenAIApi(config);
 app.get("/test", (req, res) => {
   res.json("test ok");
 });
-app.post("/weather", async (req, res) => {
+app.post("/api/weather", async (req, res) => {
   const { city } = req.body;
   try {
     let message = `Hello, I'm Robbie the creator of this weather app. Here is the weather forecast of ${city}.`;
